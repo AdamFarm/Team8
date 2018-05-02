@@ -7,24 +7,28 @@ import java.util.Scanner;
 
 public class JDBC {
 
+	
 	public static void main(String a[])
     {
         //Creating the connection
-        String url = "jdbc:oracle:thin:@localhost:1521:xe";
-        String user = "system";
-        String pass = "12345";
+        String url = "jdbc:oracle:thin:@team8oracle.c7mfymi8txgn.us-east-2.rds.amazonaws.com:1521:ORCL";
+        String user = "Team8";
+        String pass = "team8iscool";
  
-        //Entering the data
+        /**
         Scanner k = new Scanner(System.in);
         System.out.println("enter name");
-        String name = k.next();
-        System.out.println("enter roll no");
-        int roll = k.nextInt();
-        System.out.println("enter class");
-        String cls =  k.next();
+        **/ 
+        
+        // String name = k.next();
+        // System.out.println("enter roll no");
+        String roll = "123";
+        String name = "something";
+        //System.out.println("enter class");
+        //String cls =  k.next();
  
         //Inserting data using SQL query
-        String sql = "insert into student1 values('"+name+"',"+roll+",'"+cls+"')";
+        String sql = "INSERT INTO MD_APPLICATIONS (ID, NAME, PROJECT_ID_FK) VALUES ('213', 'etst', '123')";
         Connection con=null;
         try
         {
