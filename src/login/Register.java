@@ -35,12 +35,11 @@ public class Register {
 		Scanner perm_input = new Scanner(System.in);
 		System.out.println("Choose Permission Level: ");
 		String perm = perm_input.next();
+		System.out.println(perm.toUpperCase());
 		
-	/*	if (perm.toUpperCase() != "STUDENT" && perm.toUpperCase() != "TEACHER" 
-				&& perm.toUpperCase() != "ADMIN") {
-				System.out.println("Permissions must be either Student, Teacher, or Admin");
-		} else {
-	*/{		try {
+		if (perm.toUpperCase().equals("STUDENT") || perm.toUpperCase().equals("TEACHER") 
+				|| perm.toUpperCase().equals("ADMIN")) {
+			try {
 				DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
 				conn = DriverManager.getConnection(db_url, db_user, db_pass);
 				System.out.println("Connected database successfully...");
@@ -53,7 +52,7 @@ public class Register {
 				ps.setString(1, user);
 				ps.setString(2, pass);
 				ps.setString(3, id);
-				ps.setString(4, perm);
+				ps.setString(4, perm.toUpperCase());
 
 				ps.execute();
 				ps.close();
@@ -66,17 +65,15 @@ public class Register {
 				} catch (SQLException se) {
 				}
 			}
-		}
+		} else {		
 
+			System.out.println("Permissions must be either Student, Teacher, or Admin");
+		}
 		
 		user_input.close();
 		pass_input.close();
 		perm_input.close();
-
-		
-
-		
-		
+	
 	}
 
 	public static void main(String[] args) {
